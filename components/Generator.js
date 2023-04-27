@@ -15,12 +15,6 @@ export default function Generator() {
     "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
   ];
 
-  // Options to add:
-  //   - "Unknown date" option
-  //   - Validate column names to prevent weird stuff
-  //   - Loading icon when download is processing
-  //   - SQL code that will generate the dimdates table?
-
   const [options, setOptions] = useState({
     startDate: '2000-01-01',
     endDate: '2049-12-31',
@@ -182,7 +176,7 @@ export default function Generator() {
 
       <Collapsible title="Basic Options">
 
-        <div className="text-sm w-3/5 columns-2 mx-auto pb-5">
+        <div className="text-sm w-4/5 columns-2 mx-auto pb-5">
           <div className="flex">
             <p className="pr-2">Begin date:</p>
             <input
@@ -274,13 +268,13 @@ export default function Generator() {
 
       <Collapsible title="Flag Options">
         <FieldOptionsTable unchecked>
-          <FieldOptions id="isFirstDayOfWeek"           name="IsFirstDayOfWeek"               description="indicates if the date is the first day of the week"      unchecked               onChange={onFlagOptionsChange} />
-          <FieldOptions id="isLastDayOfWeek"            name="IsLastDayOfWeek"                description="indicates if the date is the last day of the week"       unchecked               onChange={onFlagOptionsChange} />
-          <FieldOptions id="isFirstDayOfMonth"          name="IsFirstDayOfMonth"              description="indicates if the date is the first day of the month"     unchecked               onChange={onFlagOptionsChange} />
-          <FieldOptions id="isLastDayOfMonth"           name="IsLastDayOfMonth"               description="indicates if the date is the last day of the month"      unchecked               onChange={onFlagOptionsChange} />
-          <FieldOptions id="isFirstDayOfYear"           name="IsFirstDayOfYear"               description="indicates if the date is the first day of the year"      unchecked               onChange={onFlagOptionsChange} />
-          <FieldOptions id="isLastDayOfYear"            name="IsLastDayOfYear"                description="indicates if the date is the last day of the year"       unchecked               onChange={onFlagOptionsChange} />
-          <FieldOptions id="isWeekend"                  name="IsWeekend"                      description="indicates if the date falls on the weekend"              unchecked               onChange={onFlagOptionsChange} />
+          <FieldOptions id="isFirstDayOfWeek"           name="IsFirstDayOfWeek"               description="Indicates if the date is the first day of the week"      unchecked               onChange={onFlagOptionsChange} />
+          <FieldOptions id="isLastDayOfWeek"            name="IsLastDayOfWeek"                description="Indicates if the date is the last day of the week"       unchecked               onChange={onFlagOptionsChange} />
+          <FieldOptions id="isFirstDayOfMonth"          name="IsFirstDayOfMonth"              description="Indicates if the date is the first day of the month"     unchecked               onChange={onFlagOptionsChange} />
+          <FieldOptions id="isLastDayOfMonth"           name="IsLastDayOfMonth"               description="Indicates if the date is the last day of the month"      unchecked               onChange={onFlagOptionsChange} />
+          <FieldOptions id="isFirstDayOfYear"           name="IsFirstDayOfYear"               description="Indicates if the date is the first day of the year"      unchecked               onChange={onFlagOptionsChange} />
+          <FieldOptions id="isLastDayOfYear"            name="IsLastDayOfYear"                description="Indicates if the date is the last day of the year"       unchecked               onChange={onFlagOptionsChange} />
+          <FieldOptions id="isWeekend"                  name="IsWeekend"                      description="Indicates if the date falls on the weekend"              unchecked               onChange={onFlagOptionsChange} />
         </FieldOptionsTable>
       </Collapsible>
 
@@ -337,12 +331,17 @@ export default function Generator() {
             </label>
           </div>
         </div> */}
-        <div className="tabs flex justify-center items-center pb-5">
+        {/* <div className="tabs flex justify-center items-center pb-5">
           <div className="tab tab-bordered tab-active">SQL</div> 
           <a className="tab tab-bordered">CSV</a> 
           <a className="tab tab-bordered">JSON</a>
         </div>
-        <DropDownList title="SQL dialect" options={["SQL-92", "Spark SQL"]} />
+        <DropDownList title="SQL dialect" options={["SQL-92", "Spark SQL"]} /> */}
+        <div className="text-sm">
+          <p>
+            (Only CSV export supported for now; SQL and JSON support coming soon.)
+          </p>
+        </div>
       </Collapsible>
 
       <div className="flex justify-center mt-5">

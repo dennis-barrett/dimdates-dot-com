@@ -6,7 +6,6 @@ export default function generateDimDates(options, nRecords) {
   
   const startDate = DateTime.fromISO(options.startDate);
   const endDate   = DateTime.fromISO(options.endDate);
-  const startId   = (options.basicFields.id.semanticIds) ? dateToInt(startDate) : 1;
   const numDays   = (!nRecords) ? endDate.diff(startDate, 'days').values.days+1 : nRecords;
 
   let headers = [];

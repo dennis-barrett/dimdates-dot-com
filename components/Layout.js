@@ -5,7 +5,7 @@ import icon from '../public/dimdates-icon.svg';
 
 export default function Layout({ children }) {
   return (
-    <div className="max-w-4xl mx-auto font-Raleway text-xl">
+    <div className="max-w-3xl mx-auto font-Raleway text-xl">
       <div className="flex flex-col items-center pb-5">
         <div className="pt-5">
           <Link href="/">
@@ -36,9 +36,9 @@ export default function Layout({ children }) {
         {children}
       </div>
 
-      <div className="pt-5 pb-5 text-center text-xs text-caribbean-red">
+      <div className="pt-5 pb-5 text-center text-xs text-caribbean-red text-opacity-40">
         <p>
-          dimdates &copy; 2023 Dennis Barrett&nbsp;&nbsp;|&nbsp;&nbsp;v0.1 (<Link href="/change-log">changelog</Link>)
+          dimdates &copy; 2023 Dennis Barrett&nbsp;&nbsp;|&nbsp;&nbsp;v0.1 (<Link href="/change-log">change log</Link>)&nbsp;&nbsp;|&nbsp;&nbsp; <Link href="https://github.com/dennis-barrett/dimdates-dot-com">github.com/dennis-barrett/dimdates-dot-com</Link>
         </p>
       </div>
     </div>

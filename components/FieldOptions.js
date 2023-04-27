@@ -1,5 +1,5 @@
 export function FieldOptions({ id, name, description, options, checked, onChange }) {  
-  var options_content = null;
+  let options_content = null;
 
   if (options) {
     options_content = (
