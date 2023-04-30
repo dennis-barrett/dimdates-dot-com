@@ -10,6 +10,11 @@ export default function Document() {
         <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet" />
 
         <Script
+          src="https://storage.ko-fi.com/cdn/scripts/overlay-widget.js"
+          strategy="beforeInteractive"
+        />
+
+        <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GOOGLE_ANALYTICS_TAG}`}
           strategy="afterInteractive"
         />

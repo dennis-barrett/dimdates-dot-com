@@ -4,11 +4,6 @@ import Generator from '@components/Generator';
 export default function Home() {
   return (
     <>
-      <Script
-        src="https://storage.ko-fi.com/cdn/scripts/overlay-widget.js"
-        strategy="beforeInteractive"
-      />
-
       <div>
         <p className="pb-2">
           <b>Welcome to dimdates.com!</b>
