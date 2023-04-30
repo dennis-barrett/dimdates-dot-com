@@ -19,61 +19,73 @@ export default function Generator() {
     startDate: '2000-01-01',
     endDate: '2049-12-31',
     basicFields: {
-      id                         : { name: 'Id'                        , active: true, semanticIds: true          , order:  1 },
-      date                       : { name: 'Date'                      , active: true                             , order:  2 },
-      dateLongDescription        : { name: 'DateLongDescription'       , active: true, formatString: 'DDDD'       , order:  3 },
-      dateShortDescription       : { name: 'DateShortDescription'      , active: true, formatString: 'DD'         , order:  4 },
-      dayLongName                : { name: 'DayLongName'               , active: true, formatString: "EEEE"       , order:  5 },
-      dayShortName               : { name: 'DayShortName'              , active: true, formatString: "EEE"        , order:  6 },
-      monthLongName              : { name: 'MonthLongName'             , active: true, formatString: "MMMM"       , order:  7 },
-      monthShortName             : { name: 'MonthShortName'            , active: true, formatString: "MMM"        , order:  8 },
-      quarterLongName            : { name: 'QuarterLongName'           , active: true, formatString: "'Quarter 'q", order:  9 },
-      quarterShortName           : { name: 'QuarterShortName'          , active: true, formatString: "'Q'q"       , order: 10 },
+      id                            : { name: 'Id'                           , description: "Primary key."                                            , active: true, semanticIds: true          , order:   1 },
+      date                          : { name: 'Date'                         , description: "The actual date for the record."                         , active: true, formatString: "yyyy-MM-dd" , order:   2 },
+      dateLongDescription           : { name: 'DateLongDescription'          , description: "Full description of a date, e.g., Monday 1 January 2000.", active: true, formatString: "DDDD"       , order:   3 },
+      dateShortDescription          : { name: 'DateShortDescription'         , description: "Short description of a date, e.g., 1 Jan 2000."          , active: true, formatString: "DD"         , order:   4 },
+      dayLongName                   : { name: 'DayLongName'                  , description: "Full name of a day, e.g., Monday."                       , active: true, formatString: "EEEE"       , order:   5 },
+      dayShortName                  : { name: 'DayShortName'                 , description: "Short name of a day, e.g., Mon."                         , active: true, formatString: "EEE"        , order:   6 },
+      monthLongName                 : { name: 'MonthLongName'                , description: "Full name of a month, e.g., January."                    , active: true, formatString: "MMMM"       , order:   7 },
+      monthShortName                : { name: 'MonthShortName'               , description: "Short name of a month, e.g., Jan."                       , active: true, formatString: "MMM"        , order:   8 },
+      quarterLongName               : { name: 'QuarterLongName'              , description: "Full name of a quarter, e.g., Quarter 1."                , active: true, formatString: "'Quarter 'q", order:   9 },
+      quarterShortName              : { name: 'QuarterShortName'             , description: "Short name of a quarter, e.g., Q1."                      , active: true, formatString: "'Q'q"       , order:  10 },
     },
     calendarPeriodFields: {
-      calendarWeekNumber         : { name: "CalendarWeekNumber"        , active: true                      },
-      calendarWeekStartDateId    : { name: "CalendarWeekStartDateId"   , active: true                      },
-      calendarWeekEndDateId      : { name: "CalendarWeekEndDateId"     , active: true                      },
-      calendarWeekStartDate      : { name: "CalendarWeekStartDate"     , active: false                     },
-      calendarWeekEndDate        : { name: "CalendarWeekEndDate"       , active: false                     },
-      calendarMonthNumber        : { name: "CalendarMonthNumber"       , active: true                      },
-      calendarMonthStartDateId   : { name: "CalendarMonthStartDateId"  , active: true                      },
-      calendarMonthEndDateId     : { name: "CalendarMonthEndDateId"    , active: true                      },
-      calendarMonthStartDate     : { name: "CalendarMonthStartDate"    , active: false                     },
-      calendarMonthEndDate       : { name: "CalendarMonthEndDate"      , active: false                     },
-      calendarQuarterNumber      : { name: "CalendarQuarterNumber"     , active: true                      },
-      calendarQuarterStartDateId : { name: "CalendarQuarterStartDateId", active: true                      },
-      calendarQuarterEndDateId   : { name: "CalendarQuarterEndDateId"  , active: true                      },
-      calendarQuarterStartDate   : { name: "CalendarQuarterStartDate"  , active: false                     },
-      calendarQuarterEndDate     : { name: "CalendarQuarterEndDate"    , active: false                     },
-      calendarYear               : { name: "CalendarYear"              , active: true                      },
+      calendarWeek                  : { name: "CalendarWeek"                 , description: "The calendar week number in the year."                    , active: true ,                             order: 101 },
+      calendarWeekStartDateId       : { name: "CalendarWeekStartDateId"      , description: "Foreign key indicating the calendar week's start date."   , active: true ,                             order: 102 },
+      calendarWeekEndDateId         : { name: "CalendarWeekEndDateId"        , description: "Foreign key indicating the calendar week's end date."     , active: true ,                             order: 103 },
+      calendarWeekStartDate         : { name: "CalendarWeekStartDate"        , description: "The calendar week's start date."                          , active: false, formatString: "yyyy-MM-dd", order: 104 },
+      calendarWeekEndDate           : { name: "CalendarWeekEndDate"          , description: "The calendar week's end date."                            , active: false, formatString: "yyyy-MM-dd", order: 105 },
+      calendarDayInWeek             : { name: "CalendarDayInWeek"            , description: "The day number in the week."                              , active: true ,                             order: 106 },
+      calendarMonth                 : { name: "CalendarMonth"                , description: "The calendar month number in the year."                   , active: true ,                             order: 107 },
+      calendarMonthStartDateId      : { name: "CalendarMonthStartDateId"     , description: "Foreign key indicating the calendar month's start date."  , active: true ,                             order: 108 },
+      calendarMonthEndDateId        : { name: "CalendarMonthEndDateId"       , description: "Foreign key indicating the calendar month's end date."    , active: true ,                             order: 109 },
+      calendarMonthStartDate        : { name: "CalendarMonthStartDate"       , description: "The calendar month's start date."                         , active: false, formatString: "yyyy-MM-dd", order: 110 },
+      calendarMonthEndDate          : { name: "CalendarMonthEndDate"         , description: "The calendar month's end date."                           , active: false, formatString: "yyyy-MM-dd", order: 111 },
+      calendarNumberOfDaysInMonth   : { name: "CalendarNumberOfDaysInMonth"  , description: "The number of days in the calendar month."                , active: true ,                             order: 112 },
+      calendarDayInMonth            : { name: "CalendarDayInMonth"           , description: "The day number in the calendar month."                    , active: true ,                             order: 113 },
+      calendarQuarter               : { name: "CalendarQuarter"              , description: "The calendar quarter number in the year."                 , active: true ,                             order: 114 },
+      calendarQuarterStartDateId    : { name: "CalendarQuarterStartDateId"   , description: "Foreign key indicating the calendar quarter's start date.", active: true ,                             order: 115 },
+      calendarQuarterEndDateId      : { name: "CalendarQuarterEndDateId"     , description: "Foreign key indicating the calendar quarter's end date."  , active: true ,                             order: 116 },
+      calendarQuarterStartDate      : { name: "CalendarQuarterStartDate"     , description: "The calendar quarter's start date."                       , active: false, formatString: "yyyy-MM-dd", order: 117 },
+      calendarQuarterEndDate        : { name: "CalendarQuarterEndDate"       , description: "The calendar quarter's end date."                         , active: false, formatString: "yyyy-MM-dd", order: 118 },
+      calendarNumberOfDaysInQuarter : { name: "CalendarNumberOfDaysInQuarter", description: "The number of days in the calendar quarter."              , active: true ,                             order: 119 },
+      calendarDayInQuarter          : { name: "CalendarDayInQuarter"         , description: "The day number in the calendar quarter."                  , active: true ,                             order: 120 },
+      calendarYear                  : { name: "CalendarYear"                 , description: "The calendar year number."                                , active: true ,                             order: 121 },
+      calendarYearStartDateId       : { name: "CalendarYearStartDateId"      , description: "Foreign key indicating the calendar year's start date."   , active: true ,                             order: 122 },
+      calendarYearEndDateId         : { name: "CalendarYearEndDateId"        , description: "Foreign key indicating the calendar year's end date."     , active: true ,                             order: 123 },
+      calendarYearStartDate         : { name: "CalendarYearStartDate"        , description: "The calendar year's start date."                          , active: false, formatString: "yyyy-MM-dd", order: 124 },
+      calendarYearEndDate           : { name: "CalendarYearEndDate"          , description: "The calendar year's end date."                            , active: false, formatString: "yyyy-MM-dd", order: 125 },
+      calendarNumberOfDaysInYear    : { name: "CalendarNumberOfDaysInYear"   , description: "The number of days in the calendar year."                 , active: true ,                             order: 126 },
+      calendarDayInYear             : { name: "CalendarDayInYear"            , description: "The day number in the calendar year."                     , active: true ,                             order: 127 },
     },
     fiscalPeriodFields: {
-      fiscalWeekNumber           : { name: "FiscalWeekNumber"          , active: true                      },
-      fiscalWeekStartDateId      : { name: "FiscalWeekStartDateId"     , active: true                      },
-      fiscalWeekEndDateId        : { name: "FiscalWeekEndDateId"       , active: true                      },
-      fiscalWeekStartDate        : { name: "FiscalWeekStartDate"       , active: false                     },
-      fiscalWeekEndDate          : { name: "FiscalWeekEndDate"         , active: false                     },
-      fiscalMonthNumber          : { name: "FiscalMonthNumber"         , active: true                      },
-      fiscalMonthStartDateId     : { name: "FiscalMonthStartDateId"    , active: true                      },
-      fiscalMonthEndDateId       : { name: "FiscalMonthEndDateId"      , active: true                      },
-      fiscalMonthStartDate       : { name: "FiscalMonthStartDate"      , active: false                     },
-      fiscalMonthEndDate         : { name: "FiscalMonthEndDate"        , active: false                     },
-      fiscalQuarterNumber        : { name: "FiscalQuarterNumber"       , active: true                      },
-      fiscalQuarterStartDateId   : { name: "FiscalQuarterStartDateId"  , active: true                      },
-      fiscalQuarterEndDateId     : { name: "FiscalQuarterEndDateId"    , active: true                      },
-      fiscalQuarterStartDate     : { name: "FiscalQuarterStartDate"    , active: false                     },
-      fiscalQuarterEndDate       : { name: "FiscalQuarterEndDate"      , active: false                     },
-      fiscalYear                 : { name: "FiscalYear"                , active: true                      },
+      fiscalWeekNumber              : { name: "FiscalWeekNumber"             , description: "Week number enumeration."                                 , active: true                                          },
+      fiscalWeekStartDateId         : { name: "FiscalWeekStartDateId"        , description: "Foreign key indicating the fiscal week's start date."     , active: true                                          },
+      fiscalWeekEndDateId           : { name: "FiscalWeekEndDateId"          , description: "Foreign key indicating the fiscal week's end date."       , active: true                                          },
+      fiscalWeekStartDate           : { name: "FiscalWeekStartDate"          , description: "..."                                                      , active: false                                         },
+      fiscalWeekEndDate             : { name: "FiscalWeekEndDate"            , description: "..."                                                      , active: false                                         },
+      fiscalMonthNumber             : { name: "FiscalMonthNumber"            , description: "..."                                                      , active: true                                          },
+      fiscalMonthStartDateId        : { name: "FiscalMonthStartDateId"       , description: "Foreign key indicating the fiscal month's start date."    , active: true                                          },
+      fiscalMonthEndDateId          : { name: "FiscalMonthEndDateId"         , description: "Foreign key indicating the fiscal month's end date."      , active: true                                          },
+      fiscalMonthStartDate          : { name: "FiscalMonthStartDate"         , description: "..."                                                      , active: false                                         },
+      fiscalMonthEndDate            : { name: "FiscalMonthEndDate"           , description: "..."                                                      , active: false                                         },
+      fiscalQuarterNumber           : { name: "FiscalQuarterNumber"          , description: "..."                                                      , active: true                                          },
+      fiscalQuarterStartDateId      : { name: "FiscalQuarterStartDateId"     , description: "Foreign key indicating the fiscal quarter's start date."  , active: true                                          },
+      fiscalQuarterEndDateId        : { name: "FiscalQuarterEndDateId"       , description: "Foreign key indicating the fiscal quarter's end date."    , active: true                                          },
+      fiscalQuarterStartDate        : { name: "FiscalQuarterStartDate"       , description: "..."                                                      , active: false                                         },
+      fiscalQuarterEndDate          : { name: "FiscalQuarterEndDate"         , description: "..."                                                      , active: false                                         },
+      fiscalYear                    : { name: "FiscalYear"                   , description: "..."                                                      , active: true                                          },
     },
     flagFields: {
-      isFirstDayOfWeek           : { name: "IsFirstDayOfWeek"          , active: true                      },
-      isLastDayOfWeek            : { name: "IsLastDayOfWeek"           , active: true                      },
-      isFirstDayOfMonth          : { name: "IsFirstDayOfMonth"         , active: true                      },
-      isLastDayOfMonth           : { name: "IsLastDayOfMonth"          , active: true                      },
-      isFirstDayOfYear           : { name: "IsFirstDayOfYear"          , active: true                      },
-      isLastDayOfYear            : { name: "IsLastDayOfYear"           , active: true                      },
-      isWeekend                  : { name: "IsWeekend"                 , active: true                      },
+      isFirstDayOfWeek              : { name: "IsFirstDayOfWeek"             , description: "Indicates if the date is the first day of the week."      , active: true                                          },
+      isLastDayOfWeek               : { name: "IsLastDayOfWeek"              , description: "Indicates if the date is the last day of the week."       , active: true                                          },
+      isFirstDayOfMonth             : { name: "IsFirstDayOfMonth"            , description: "Indicates if the date is the first day of the month."     , active: true                                          },
+      isLastDayOfMonth              : { name: "IsLastDayOfMonth"             , description: "Indicates if the date is the last day of the month."      , active: true                                          },
+      isFirstDayOfYear              : { name: "IsFirstDayOfYear"             , description: "Indicates if the date is the first day of the year."      , active: true                                          },
+      isLastDayOfYear               : { name: "IsLastDayOfYear"              , description: "Indicates if the date is the last day of the year."       , active: true                                          },
+      isWeekend                     : { name: "IsWeekend"                    , description: "Indicates if the date falls on the weekend."              , active: true                                          },
+      isLeapYear                    : { name: "IsLeapYear"                   , description: "Indicates if the date falls in a leap year."              , active: true                                          }
     }
   });
 
@@ -92,6 +104,7 @@ export default function Generator() {
   const areBasicFieldsAllChecked          = () => Object.values(options.basicFields         ).reduce((acc, x) => x.active && acc, true);
   const areCalendarPeriodFieldsAllChecked = () => Object.values(options.calendarPeriodFields).reduce((acc, x) => x.active && acc, true);
   const areFiscalPeriodFieldsAllChecked   = () => Object.values(options.fiscalPeriodFields  ).reduce((acc, x) => x.active && acc, true);
+  const areFlagFieldsAllChecked           = () => Object.values(options.flagFields          ).reduce((acc, x) => x.active && acc, true);
 
   const onBasicOptionsChange = event => {
     // If the `id` is the whole table, i.e., "basicOptions", then we apply the change
@@ -203,78 +216,67 @@ export default function Generator() {
         </div>
 
         <FieldOptionsTable id="basicOptions" checked={areBasicFieldsAllChecked()} onChange={onBasicOptionsChange}>
-          <FieldOptions id="id"                         name="Id"                             description="Primary key"                                             checked={options.basicFields.id                  .active} options="semantic IDs"  onChange={onBasicOptionsChange} />
-          <FieldOptions id="date"                       name="Date"                           description="The actual date for the record"                          checked={options.basicFields.date                .active}                         onChange={onBasicOptionsChange} />
-          <FieldOptions id="dateLongDescription"        name="DateLongDescription"            description="Full description of a date, e.g., Monday 1 January 2000" checked={options.basicFields.dateLongDescription .active} options="format string" onChange={onBasicOptionsChange} />
-          <FieldOptions id="dateShortDescription"       name="DateShortDescription"           description="Short description of a date, e.g., 1 Jan 2000"           checked={options.basicFields.dateShortDescription.active} options="format string" onChange={onBasicOptionsChange} />
-          <FieldOptions id="dayLongName"                name="DayLongName"                    description="Full name of a day, e.g., Monday"                        checked={options.basicFields.dayLongName         .active}                         onChange={onBasicOptionsChange} />
-          <FieldOptions id="dayShortName"               name="DayShortName"                   description="Short name of a day, e.g., Mon"                          checked={options.basicFields.dayShortName        .active}                         onChange={onBasicOptionsChange} />
-          <FieldOptions id="monthLongName"              name="MonthLongName"                  description="Full name of a month, e.g., January"                     checked={options.basicFields.monthLongName       .active}                         onChange={onBasicOptionsChange} />
-          <FieldOptions id="monthShortName"             name="MonthShortName"                 description="Short name of a month, e.g., Jan"                        checked={options.basicFields.monthShortName      .active}                         onChange={onBasicOptionsChange} />
-          <FieldOptions id="quarterLongName"            name="QuarterLongName"                description="Full name of a quarter, e.g., Quarter 1"                 checked={options.basicFields.quarterLongName     .active}                         onChange={onBasicOptionsChange} />
-          <FieldOptions id="quarterShortName"           name="QuarterShortName"               description="Short name of a quarter, e.g., Q1"                       checked={options.basicFields.quarterShortName    .active}                         onChange={onBasicOptionsChange} />
+          {
+            Object.entries(options.basicFields).map(entry =>
+              <FieldOptions
+                id={entry[0]}
+                name={entry[1].name}
+                description={entry[1].description}
+                checked={entry[1].active}
+                onChange={onBasicOptionsChange}
+              />
+            )
+          }
         </FieldOptionsTable>
       </Collapsible>
 
-      <Collapsible title="Calendar Period Options">
+      <Collapsible title="Calendar Period Options" checked={areCalendarPeriodFieldsAllChecked()} onChange={onCalendarPeriodOptionsChange}>
         <FieldOptionsTable>
-          <FieldOptions id="calendarWeekNumber"         name="CalendarWeekNumber"             description="Week number enumeration"                                                         onChange={onCalendarPeriodOptionsChange} />
-          <FieldOptions id="calendarWeekStartDateId"    name="CalendarWeekStartDateId"        description="Foreign key indicating the calendar week's start date"                           onChange={onCalendarPeriodOptionsChange} />
-          <FieldOptions id="calendarWeekEndDateId"      name="CalendarWeekEndDateId"          description="Foreign key indicating the calendar week's end date"                             onChange={onCalendarPeriodOptionsChange} />
-          <FieldOptions id="calendarWeekStartDate"      name="CalendarWeekStartDate"          description="..."                                                     unchecked               onChange={onCalendarPeriodOptionsChange} />
-          <FieldOptions id="calendarWeekEndDate"        name="CalendarWeekEndDate"            description="..."                                                     unchecked               onChange={onCalendarPeriodOptionsChange} />
- 
-          <FieldOptions id="calendarMonthNumber"        name="CalendarMonthNumber"            description="..."                                                                             onChange={onCalendarPeriodOptionsChange} />
-          <FieldOptions id="calendarMonthStartDateId"   name="CalendarMonthStartDateId"       description="Foreign key indicating the calendar month's start date"                          onChange={onCalendarPeriodOptionsChange} />
-          <FieldOptions id="calendarMonthEndDateId"     name="CalendarMonthEndDateId"         description="Foreign key indicating the calendar month's end date"                            onChange={onCalendarPeriodOptionsChange} />
-          <FieldOptions id="calendarMonthStartDate"     name="CalendarMonthStartDate"         description="..."                                                     unchecked               onChange={onCalendarPeriodOptionsChange} />
-          <FieldOptions id="calendarMonthEndDate"       name="CalendarMonthEndDate"           description="..."                                                     unchecked               onChange={onCalendarPeriodOptionsChange} />
-
-          <FieldOptions id="calendarQuarterNumber"      name="CalendarQuarterNumber"          description="..."                                                                             onChange={onCalendarPeriodOptionsChange} />
-          <FieldOptions id="calendarQuarterStartDateId" name="CalendarQuarterStartDateId"     description="Foreign key indicating the calendar quarter's start date"                        onChange={onCalendarPeriodOptionsChange} />
-          <FieldOptions id="calendarQuarterEndDateId"   name="CalendarQuarterEndDateId"       description="Foreign key indicating the calendar quarter's end date"                          onChange={onCalendarPeriodOptionsChange} />
-          <FieldOptions id="calendarQuarterStartDate"   name="CalendarQuarterStartDate"       description="..."                                                     unchecked               onChange={onCalendarPeriodOptionsChange} />
-          <FieldOptions id="calendarQuarterEndDate"     name="CalendarQuarterEndDate"         description="..."                                                     unchecked               onChange={onCalendarPeriodOptionsChange} />
-
-          <FieldOptions id="calendarYear"               name="CalendarYear"                   description="..."                                                                             onChange={onCalendarPeriodOptionsChange} />
+        {
+            Object.entries(options.calendarPeriodFields).map(entry =>
+              <FieldOptions
+                id={entry[0]}
+                name={entry[1].name}
+                description={entry[1].description}
+                checked={entry[1].active}
+                onChange={onCalendarPeriodOptionsChange}
+              />
+            )
+          }
         </FieldOptionsTable>
       </Collapsible>
 
-      <Collapsible title="Fiscal Period Options">
+      <Collapsible title="Fiscal Period Options" checked={areFiscalPeriodFieldsAllChecked()} onChange={onFiscalPeriodOptionsChange}>
         <DropDownList title="Start of fiscal year" options={months} />
 
         <FieldOptionsTable>
-          <FieldOptions id="fiscalWeekNumber"           name="FiscalWeekNumber"               description="Week number enumeration"                                                         onChange={onFiscalPeriodOptionsChange} />
-          <FieldOptions id="fiscalWeekStartDateId"      name="FiscalWeekStartDateId"          description="Foreign key indicating the fiscal week's start date"                             onChange={onFiscalPeriodOptionsChange} />
-          <FieldOptions id="fiscalWeekEndDateId"        name="FiscalWeekEndDateId"            description="Foreign key indicating the fiscal week's end date"                               onChange={onFiscalPeriodOptionsChange} />
-          <FieldOptions id="fiscalWeekStartDate"        name="FiscalWeekStartDate"            description="..."                                                     unchecked               onChange={onFiscalPeriodOptionsChange} />
-          <FieldOptions id="fiscalWeekEndDate"          name="FiscalWeekEndDate"              description="..."                                                     unchecked               onChange={onFiscalPeriodOptionsChange} />
-
-          <FieldOptions id="fiscalMonthNumber"          name="FiscalMonthNumber"              description="..."                                                                             onChange={onFiscalPeriodOptionsChange} />
-          <FieldOptions id="fiscalMonthStartDateId"     name="FiscalMonthStartDateId"         description="Foreign key indicating the fiscal month's start date"                            onChange={onFiscalPeriodOptionsChange} />
-          <FieldOptions id="fiscalMonthEndDateId"       name="FiscalMonthEndDateId"           description="Foreign key indicating the fiscal month's end date"                              onChange={onFiscalPeriodOptionsChange} />
-          <FieldOptions id="fiscalMonthStartDate"       name="FiscalMonthStartDate"           description="..."                                                     unchecked               onChange={onFiscalPeriodOptionsChange} />
-          <FieldOptions id="fiscalMonthEndDate"         name="FiscalMonthEndDate"             description="..."                                                     unchecked               onChange={onFiscalPeriodOptionsChange} />
-
-          <FieldOptions id="fiscalQuarterNumber"        name="FiscalQuarterNumber"            description="..."                                                                             onChange={onFiscalPeriodOptionsChange} />
-          <FieldOptions id="fiscalQuarterStartDateId"   name="FiscalQuarterStartDateId"       description="Foreign key indicating the fiscal quarter's start date"                          onChange={onFiscalPeriodOptionsChange} />
-          <FieldOptions id="fiscalQuarterEndDateId"     name="FiscalQuarterEndDateId"         description="Foreign key indicating the fiscal quarter's end date"                            onChange={onFiscalPeriodOptionsChange} />
-          <FieldOptions id="fiscalQuarterStartDate"     name="FiscalQuarterStartDate"         description="..."                                                     unchecked               onChange={onFiscalPeriodOptionsChange} />
-          <FieldOptions id="fiscalQuarterEndDate"       name="FiscalQuarterEndDate"           description="..."                                                     unchecked               onChange={onFiscalPeriodOptionsChange} />
-
-          <FieldOptions id="fiscalYear"                 name="FiscalYear"                     description="..."                                                                             onChange={onFiscalPeriodOptionsChange} />
+          {
+            Object.entries(options.fiscalPeriodFields).map(entry =>
+              <FieldOptions
+                id={entry[0]}
+                name={entry[1].name}
+                description={entry[1].description}
+                checked={entry[1].active}
+                onChange={onFiscalPeriodOptionsChange}
+              />
+            )
+          }
         </FieldOptionsTable>
       </Collapsible>
 
-      <Collapsible title="Flag Options">
-        <FieldOptionsTable unchecked>
-          <FieldOptions id="isFirstDayOfWeek"           name="IsFirstDayOfWeek"               description="Indicates if the date is the first day of the week"      unchecked               onChange={onFlagOptionsChange} />
-          <FieldOptions id="isLastDayOfWeek"            name="IsLastDayOfWeek"                description="Indicates if the date is the last day of the week"       unchecked               onChange={onFlagOptionsChange} />
-          <FieldOptions id="isFirstDayOfMonth"          name="IsFirstDayOfMonth"              description="Indicates if the date is the first day of the month"     unchecked               onChange={onFlagOptionsChange} />
-          <FieldOptions id="isLastDayOfMonth"           name="IsLastDayOfMonth"               description="Indicates if the date is the last day of the month"      unchecked               onChange={onFlagOptionsChange} />
-          <FieldOptions id="isFirstDayOfYear"           name="IsFirstDayOfYear"               description="Indicates if the date is the first day of the year"      unchecked               onChange={onFlagOptionsChange} />
-          <FieldOptions id="isLastDayOfYear"            name="IsLastDayOfYear"                description="Indicates if the date is the last day of the year"       unchecked               onChange={onFlagOptionsChange} />
-          <FieldOptions id="isWeekend"                  name="IsWeekend"                      description="Indicates if the date falls on the weekend"              unchecked               onChange={onFlagOptionsChange} />
+      <Collapsible title="Flag Options" checked={areFlagFieldsAllChecked()} onChange={onFlagOptionsChange}>
+        <FieldOptionsTable>
+        {
+            Object.entries(options.flagFields).map(entry =>
+              <FieldOptions
+                id={entry[0]}
+                name={entry[1].name}
+                description={entry[1].description}
+                checked={entry[1].active}
+                onChange={onFlagOptionsChange}
+              />
+            )
+          }
         </FieldOptionsTable>
       </Collapsible>
 

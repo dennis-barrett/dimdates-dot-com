@@ -1,7 +1,7 @@
 import generateDimDates from 'utilities/data-generator';
 
 export default function PreviewTable({ options }) {
-  const { headers: headers, rows: rows } = generateDimDates(options, 10);
+  const { headers: headers, rows: rows } = generateDimDates(options, 10, true);
   
   return (
     <div className="mb-2 text-xs overflow-auto">
