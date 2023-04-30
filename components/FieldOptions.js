@@ -24,7 +24,8 @@ export function FieldOptions({ id, name, description, options, checked, onChange
         {description}
       </td>
       <td className="w-3/12">
-        {options_content}
+        {/* {options_content} */}
+        (Options.)
       </td>
     </tr>
   );
