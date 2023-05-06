@@ -23,7 +23,7 @@ export default function Document() {
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'process.env.GOOGLE_ANALYTICS_TAG');
+            gtag('config', '${process.env.GOOGLE_ANALYTICS_TAG}');
           `}
         </Script>
       </Head>
