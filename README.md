@@ -11,6 +11,9 @@ Options to add for data generation:
  - [ ] SQL code that will generate the dimdates table?
 
 Roadmap items:
+ - [ ] Pop-up or hover explanations of all options.
+ - [ ] Allow customising the column prefix for Calendar and Fiscal period columns. (E.g., Fiscal -> Financial.)
+ - [ ] Have a description of the difference between calendar periods and fiscal periods.
  - [ ] Show summary of data that will be exported above "DOWNLOAD DATA" button: number of columns, number of rows, file size (?), etc.
  - [ ] Add options for number of records in preview.
  - [ ] Allow customising column name case (e.g., camel case, lowercase + underscores, etc.)
